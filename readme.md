@@ -1,7 +1,7 @@
 Use the following commands: 
 
 ```
-git@bitbucket.org:aghbit/oop-study-group.git
+git clone git@bitbucket.org:aghbit/oop-study-group.git
 git checkout -b "ImieNazwisko"
 echo "first file" > myfirstfile.txt
 git add myfirstfile.txt
