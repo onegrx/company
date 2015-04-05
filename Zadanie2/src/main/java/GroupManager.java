@@ -10,32 +10,38 @@ public class GroupManager implements Manager {
     private String role;
     private List<Employee> employees; //not sure about syntax = new ArrayList<>();
     private int numberOfPossibleWorkers;
+    public GroupManager supervisor;
 
-    public GroupManager(String name, String role, List<Employee> employees, int numberOfPossibleWorkers) {
+    public GroupManager(String name, String role, int numberOfPossibleWorkers) {
+
         this.name = name;
         this.role = role;
-        this.employees = new ArrayList<Employee>(); //<>
         this.numberOfPossibleWorkers = numberOfPossibleWorkers;
-    }
 
-    public GroupManager(String name, String role) {
-        this.name = name;
-        this.role = role;
+        this.employees = new ArrayList<Employee>(); //<>
+
     }
 
     public void hire(Employee e) {
         if(canHire()) {
-            employees.add(e);
-            System.out.println(getName() + " is now hiring " + e.getName());
+            if(employees.contains(e)) {
+                System.out.println(e.getName() + " is already hired");
+            }
+            else {
+                employees.add(e);
+                System.out.println(getName() + " is now hiring " + e.getName());
+            }
         }
         else {
-            System.out.println(getName() + "cannot hire more employees");
+            System.out.println(getName() + "cannot hire more employees.");
         }
     }
 
     public void fire(Employee e) {
-        employees.remove(e);
-        System.out.println(e.getName() + " has just been fired by " + getName());
+        if(employees.contains(e)) {
+            employees.remove(e);
+            System.out.println(e.getName() + " has just been fired by " + getName());
+        }
     }
 
     public boolean canHire() {
@@ -76,4 +82,7 @@ public class GroupManager implements Manager {
         return "Name: " + getName() + ", Role: " + getRole() + ", Hiring: " + employees.size();
     }
 
+    public int getNumberOfPossibleWorkers() {
+        return numberOfPossibleWorkers;
+    }
 }

@@ -5,10 +5,17 @@ public abstract class Worker implements Employee {
 
     private final String name;
     private String role;
+    private Manager supervisor;
 
     public Worker(String name, String role) {
         this.name = name;
         this.role = role;
+    }
+
+    public Worker(String name, String role, Manager supervisor) {
+        this.name = name;
+        this.role = role;
+        this.supervisor = supervisor;
     }
 
     @Override
@@ -20,5 +27,25 @@ public abstract class Worker implements Employee {
     public String getRole() {
         return role;
     }
+
+    @Override
+    public String getResponsibilityChain() {
+        return getSupervisor().getName() + " " + getName();
+    }
+
+    @Override
+    public String getDescription() {
+        final String s = "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
+        return s;
+    }
+
+    public Manager getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(Manager supervisor) {
+        this.supervisor = supervisor;
+    }
+
 
 }
