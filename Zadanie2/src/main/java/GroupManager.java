@@ -10,7 +10,7 @@ public class GroupManager implements Manager {
     private String role;
     private List<Employee> employees; //not sure about syntax = new ArrayList<>();
     private int numberOfPossibleWorkers;
-    public GroupManager supervisor;
+    private Manager supervisor;
 
     public GroupManager(String name, String role, int numberOfPossibleWorkers) {
 
@@ -28,6 +28,7 @@ public class GroupManager implements Manager {
                 System.out.println(e.getName() + " is already hired");
             }
             else {
+                e.setSupervisor(this);
                 employees.add(e);
                 System.out.println(getName() + " is now hiring " + e.getName());
             }
@@ -84,5 +85,13 @@ public class GroupManager implements Manager {
 
     public int getNumberOfPossibleWorkers() {
         return numberOfPossibleWorkers;
+    }
+
+    public Manager getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(Manager supervisor) {
+        this.supervisor = supervisor;
     }
 }

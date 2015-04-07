@@ -46,6 +46,6 @@ public class GroupManagerTest {
         manager.fire(person3);
 
     }
-    
+
 
 }

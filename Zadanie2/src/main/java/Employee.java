@@ -8,4 +8,7 @@ public interface Employee {
     String getDescription();
     String work();
 
+    Manager getSupervisor();
+    void setSupervisor(Manager supervisor);
+
 }

@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 public class CompanyTest {
 
     @Test
-    public void companyCanBeOnlyOne() throws Exception {
+    public void companySingletonCanBeOnlyOne() throws Exception {
         Company company = Company.getInstance();
         assertThat(company).isNotNull();
         Company otherCompany = Company.getInstance();

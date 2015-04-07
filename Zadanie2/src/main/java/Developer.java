@@ -7,6 +7,10 @@ public class Developer extends Worker {
         super(name, role);
     }
 
+    public Developer(String name, String role, Manager supervisor) {
+        super(name, role, supervisor);
+    }
+
     @Override
     public String work() {
         return getName() + " " + getRole() + " is creating new features";

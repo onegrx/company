@@ -13,8 +13,7 @@ public abstract class Worker implements Employee {
     }
 
     public Worker(String name, String role, Manager supervisor) {
-        this.name = name;
-        this.role = role;
+        this(name, role);
         this.supervisor = supervisor;
     }
 
@@ -39,10 +38,12 @@ public abstract class Worker implements Employee {
         return s;
     }
 
+    @Override
     public Manager getSupervisor() {
         return supervisor;
     }
 
+    @Override
     public void setSupervisor(Manager supervisor) {
         this.supervisor = supervisor;
     }
