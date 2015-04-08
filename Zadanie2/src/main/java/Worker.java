@@ -12,11 +12,6 @@ public abstract class Worker implements Employee {
         this.role = role;
     }
 
-    public Worker(String name, String role, Manager supervisor) {
-        this(name, role);
-        this.supervisor = supervisor;
-    }
-
     @Override
     public String getName() {
         return name;
@@ -29,7 +24,9 @@ public abstract class Worker implements Employee {
 
     @Override
     public String getResponsibilityChain() {
-        return getSupervisor().getResponsibilityChain() + " <- " + getName();
+        if(getSupervisor() != null)
+            return getSupervisor().getResponsibilityChain() + " <- " + getName();
+        return getName();
     }
 
     @Override
