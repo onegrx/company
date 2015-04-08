@@ -14,6 +14,7 @@ public class CompanyTest {
     public void companySingletonCanBeOnlyOne() throws Exception {
         Company company = Company.getInstance();
         assertThat(company).isNotNull();
+        assertThat(company).isInstanceOf(Company.class);
         Company otherCompany = Company.getInstance();
         assertThat(otherCompany).isSameAs(company);
     }

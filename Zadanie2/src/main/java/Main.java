@@ -11,9 +11,6 @@ public class Main {
         GroupManager Alan = new GroupManager("Alan", "Manager Mathematician", 3);
         GroupManager Richard = new GroupManager("Richard", "Manager Physicist", 2);
 
-        Alan.setSupervisor(Steve);
-        Richard.setSupervisor(Alan);
-
         final int quantity = 4;
         Employee[] employees = new Employee[quantity];
         employees[0] = new Developer("Jack", "Software engineer");
@@ -35,5 +32,11 @@ public class Main {
         for(Employee e : employees) {
             System.out.println(e.getDescription());
         }
+
+        System.out.println("Jack's responsibility chain:");
+        System.out.println(employees[0].getResponsibilityChain());
+
+        System.out.println("Tom's responsibility chain:");
+        System.out.println(employees[2].getResponsibilityChain());
     }
 }

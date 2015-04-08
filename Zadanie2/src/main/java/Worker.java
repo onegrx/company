@@ -29,7 +29,7 @@ public abstract class Worker implements Employee {
 
     @Override
     public String getResponsibilityChain() {
-        return getSupervisor().getName() + " " + getName();
+        return getSupervisor().getResponsibilityChain() + " <- " + getName();
     }
 
     @Override

@@ -76,7 +76,10 @@ public class GroupManager implements Manager {
     }
 
     public String getResponsibilityChain() {
-        return null;
+        if(this.getSupervisor() != null) {
+            return getSupervisor().getResponsibilityChain() + " <- " + getName();
+        }
+        return getName();
     }
 
     public String getDescription() {
