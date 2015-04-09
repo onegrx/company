@@ -5,7 +5,8 @@
 import org.junit.Test;
 
 import static org.fest.assertions.Assertions.*;
-//import static org.mockito.Mockito.mock;
+
+
 
 public class DeveloperTest {
 
@@ -17,7 +18,7 @@ public class DeveloperTest {
     }
 
     @Test
-    public void responsibilityChainEmptyForUnemployeed() throws Exception {
+    public void responsibilityChainEmptyForUnemployed() throws Exception {
         assertThat(developer.getResponsibilityChain()).doesNotContain("<-");
     }
 

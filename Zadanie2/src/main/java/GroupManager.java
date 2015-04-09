@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,5 +98,12 @@ public class GroupManager implements Manager {
 
     public void setSupervisor(Manager supervisor) {
         this.supervisor = supervisor;
+    }
+
+    public String toString() {
+
+        String s = "Group Manager: " + getName() + " ";
+        return s;
+
     }
 }

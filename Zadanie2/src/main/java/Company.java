@@ -3,7 +3,7 @@
  */
 public class Company {
 
-    private static Company _instance = null;
+    private static Company _instance;
     private Manager ceo;
 
     private Company() {

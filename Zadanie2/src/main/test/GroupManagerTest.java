@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import static org.fest.assertions.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class GroupManagerTest {
 
@@ -45,6 +46,14 @@ public class GroupManagerTest {
         assertThat(manager.canHire()).isTrue();
         manager.fire(person3);
 
+    }
+
+    @Test
+    public void hiringWorksAsItShould() throws Exception {
+        GroupManager gm = new GroupManager("John Doe", "manager", 1);
+        Developer developer = mock(Developer.class);
+        gm.hire(developer);
+        verify(developer).setSupervisor(gm);
     }
 
 

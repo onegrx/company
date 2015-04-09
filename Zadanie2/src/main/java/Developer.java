@@ -11,6 +11,13 @@ public class Developer extends Worker {
     public String work() {
         return getName() + " " + getRole() + " is creating new features";
     }
+
+    public String toString() {
+
+        String s = "Developer: " + getName() + " ";
+        return s;
+
+    }
 }
 
 

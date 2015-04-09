@@ -11,4 +11,11 @@ public class Tester extends Worker {
     public String work() {
         return getName() + " " + getRole() + " is testing software";
     }
+
+    public String toString() {
+
+        String s = "Tester: " + getName() + " ";
+        return s;
+
+    }
 }

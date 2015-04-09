@@ -4,7 +4,7 @@
 public abstract class Worker implements Employee {
 
     private final String name;
-    private String role;
+    private final String role;
     private Manager supervisor;
 
     public Worker(String name, String role) {
