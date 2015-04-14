@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,18 +7,19 @@ import java.util.List;
 public class GroupManager implements Manager {
 
     private final String name;
-    private String role;
+    private final RoleInCompany role;
     private List<Employee> employees; //not sure about syntax = new ArrayList<>();
-    private int numberOfPossibleWorkers;
+    private final int numberOfPossibleWorkers;
     private Manager supervisor;
 
-    public GroupManager(String name, String role, int numberOfPossibleWorkers) {
+    public GroupManager(String name, RoleInCompany role, int numberOfPossibleWorkers) {
 
         this.name = name;
         this.role = role;
         this.numberOfPossibleWorkers = numberOfPossibleWorkers;
 
-        this.employees = new ArrayList<Employee>(); //<>
+        this.employees = new ArrayList<Employee>();
+        //should I use ArrayList<>();
 
     }
 
@@ -49,14 +48,6 @@ public class GroupManager implements Manager {
 
     public boolean canHire() {
         return employees.size() < numberOfPossibleWorkers;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getRole() {
-        return role;
     }
 
     public String work() {
@@ -106,4 +97,13 @@ public class GroupManager implements Manager {
         return s;
 
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public RoleInCompany getRole() {
+        return role;
+    }
 }
+

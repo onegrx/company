@@ -10,7 +10,7 @@ import static org.fest.assertions.Assertions.*;
 
 public class DeveloperTest {
 
-    static final Developer developer = new Developer("John Doe", "developer");
+    static final Developer developer = new Developer("John Doe", RoleInCompany.DEVELOPER);
 
     @Test
     public void responsibilityChainMustContainName() throws Exception {

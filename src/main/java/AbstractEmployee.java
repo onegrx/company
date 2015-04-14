@@ -1,25 +1,15 @@
 /**
  * Created by onegrx on 03.04.15.
  */
-public abstract class Worker implements Employee {
+public abstract class AbstractEmployee implements Employee {
 
     private final String name;
-    private final String role;
+    private final RoleInCompany role;
     private Manager supervisor;
 
-    public Worker(String name, String role) {
+    public AbstractEmployee(String name, RoleInCompany role) {
         this.name = name;
         this.role = role;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String getRole() {
-        return role;
     }
 
     @Override
@@ -33,6 +23,16 @@ public abstract class Worker implements Employee {
     public String getDescription() {
         final String s = "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
         return s;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public RoleInCompany getRole() {
+        return role;
     }
 
     @Override

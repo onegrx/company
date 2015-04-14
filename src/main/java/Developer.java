@@ -1,9 +1,9 @@
 /**
  * Created by onegrx on 03.04.15.
  */
-public class Developer extends Worker {
+public class Developer extends AbstractEmployee {
 
-    public Developer(String name, String role) {
+    public Developer(String name, RoleInCompany role) {
         super(name, role);
     }
 

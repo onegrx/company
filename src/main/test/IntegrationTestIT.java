@@ -8,9 +8,9 @@ import static org.fest.assertions.Assertions.*;
 
 public class IntegrationTestIT {
 
-    final Developer d = new Developer("John Doe", "developer");
-    final Tester t = new Tester("Will Smith", "tester");
-    final GroupManager gm = new GroupManager("Tom Unknown", "manager", 2);
+    final Developer d = new Developer("John Doe", RoleInCompany.DEVELOPER);
+    final Tester t = new Tester("Will Smith", RoleInCompany.TESTER);
+    final GroupManager gm = new GroupManager("Tom Unknown", RoleInCompany.GROUP_MANAGER, 2);
 
     @Test
     public void hiringSystemWorksProperly() throws Exception {

@@ -5,18 +5,18 @@ public class Main {
     public static void main(String[] args) {
 
         Company company = Company.getInstance();
-        GroupManager Steve = new GroupManager("Steve", "CEO", 10);
+        GroupManager Steve = new GroupManager("Steve", RoleInCompany.CEO, 10);
         company.hireCEO(Steve);
 
-        GroupManager Alan = new GroupManager("Alan", "Manager Mathematician", 3);
-        GroupManager Richard = new GroupManager("Richard", "Manager Physicist", 2);
+        GroupManager Alan = new GroupManager("Alan", RoleInCompany.GROUP_MANAGER, 3);
+        GroupManager Richard = new GroupManager("Richard", RoleInCompany.GROUP_MANAGER, 2);
 
         final int quantity = 4;
         Employee[] employees = new Employee[quantity];
-        employees[0] = new Developer("Jack", "Software engineer");
-        employees[1] = new Developer("Mark", "GUI developer");
-        employees[2] = new Tester("Tom", "Backend tester");
-        employees[3] = new Tester("Bill", "Usability tester");
+        employees[0] = new Developer("Jack", RoleInCompany.DEVELOPER);
+        employees[1] = new Developer("Mark", RoleInCompany.DEVELOPER);
+        employees[2] = new Tester("Tom", RoleInCompany.TESTER);
+        employees[3] = new Tester("Bill", RoleInCompany.TESTER);
 
         //Let's do some work
         Steve.hire(Alan);

@@ -3,7 +3,7 @@
  */
 public interface Employee {
     String getName();
-    String getRole();
+    RoleInCompany getRole();
     String getResponsibilityChain();
     String getDescription();
     String work();

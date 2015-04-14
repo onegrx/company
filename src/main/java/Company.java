@@ -3,17 +3,17 @@
  */
 public class Company {
 
-    private static Company _instance;
+    private static Company instance;
     private Manager ceo;
 
     private Company() {
     }
 
     public static Company getInstance() {
-        if(_instance == null) {
-            _instance = new Company();
+        if(instance == null) {
+            instance = new Company();
         }
-        return _instance;
+        return instance;
 
     }
 

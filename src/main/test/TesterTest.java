@@ -9,7 +9,7 @@ import static org.fest.assertions.Assertions.*;
 
 public class TesterTest {
 
-    static final Tester tester = new Tester("John Doe", "tester");
+    static final Tester tester = new Tester("John Doe", RoleInCompany.TESTER);
 
     @Test
     public void responsibilityChainMustContainName() throws Exception {
