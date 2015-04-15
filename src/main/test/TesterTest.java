@@ -4,12 +4,14 @@
 
 import org.junit.Test;
 
+import java.math.*;
+
 import static org.fest.assertions.Assertions.*;
 
 
 public class TesterTest {
 
-    static final Tester tester = new Tester("John Doe", RoleInCompany.TESTER);
+    static final Tester tester = new Tester("John Doe", RoleInCompany.TESTER, new BigDecimal("2500"));
 
     @Test
     public void responsibilityChainMustContainName() throws Exception {

@@ -4,13 +4,15 @@
 
 import org.junit.Test;
 
+import java.math.*;
+
 import static org.fest.assertions.Assertions.*;
 
 
 
 public class DeveloperTest {
 
-    static final Developer developer = new Developer("John Doe", RoleInCompany.DEVELOPER);
+    static final Developer developer = new Developer("John Doe", RoleInCompany.DEVELOPER, new BigDecimal("3000"));
 
     @Test
     public void responsibilityChainMustContainName() throws Exception {

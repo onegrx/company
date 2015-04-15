@@ -1,15 +1,19 @@
+import java.math.*;
+
 /**
  * Created by onegrx on 03.04.15.
  */
 public abstract class AbstractEmployee implements Employee {
 
-    private final String name;
-    private final RoleInCompany role;
-    private Manager supervisor;
+    protected final String name;
+    protected final RoleInCompany role;
+    protected Manager supervisor;
+    private BigDecimal salary;
 
-    public AbstractEmployee(String name, RoleInCompany role) {
+    public AbstractEmployee(String name, RoleInCompany role, BigDecimal salary) {
         this.name = name;
         this.role = role;
+        this.salary = salary;
     }
 
     @Override
@@ -48,6 +52,10 @@ public abstract class AbstractEmployee implements Employee {
     @Override
     public void setSupervisor(Manager supervisor) {
         this.supervisor = supervisor;
+    }
+
+    public String toString() {
+        return this.getClass().getSimpleName() + " is doing something.";
     }
 
 

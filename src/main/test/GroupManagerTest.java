@@ -4,6 +4,8 @@
 
 import org.junit.Test;
 
+import java.math.*;
+
 import static org.fest.assertions.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -12,8 +14,11 @@ public class GroupManagerTest {
 
     final static String name = "Alex";
     final static RoleInCompany role = RoleInCompany.GROUP_MANAGER;
-    final static int size = 3;
-    final static GroupManager manager = new GroupManager(name, role, size);
+    final static BigDecimal salary = new BigDecimal("7000");
+    final static int numOfWorkers = 3;
+    final static BigDecimal budget = new BigDecimal("10000");
+
+    final static GroupManager manager = new GroupManager(name, role, salary, numOfWorkers, budget);
 
     @Test
     public void rightValuesForGroupManager() throws Exception {
@@ -26,7 +31,7 @@ public class GroupManagerTest {
         assertThat(receivedName).isEqualTo(name);
         assertThat(receivedRole).isEqualTo(role);
         //assertThat(receivedDescription).contains(name).contains(role);
-        assertThat(receivedCapacity).isEqualTo(size);
+        assertThat(receivedCapacity).isEqualTo(numOfWorkers);
 
     }
 
@@ -50,7 +55,8 @@ public class GroupManagerTest {
 
     @Test
     public void hiringWorksAsItShould() throws Exception {
-        GroupManager gm = new GroupManager("John Doe", RoleInCompany.GROUP_MANAGER, 1);
+        GroupManager gm = new GroupManager("John Doe", RoleInCompany.GROUP_MANAGER, new BigDecimal("5000"),
+                1, new BigDecimal("8000"));
         Developer developer = mock(Developer.class);
         gm.hire(developer);
         verify(developer).setSupervisor(gm);

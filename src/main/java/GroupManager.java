@@ -1,26 +1,25 @@
+import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by onegrx on 02.04.15.
  */
-public class GroupManager implements Manager {
+public class GroupManager extends AbstractEmployee implements Manager {
 
-    private final String name;
-    private final RoleInCompany role;
-    private List<Employee> employees; //not sure about syntax = new ArrayList<>();
+    private final List<Employee> employees;
     private final int numberOfPossibleWorkers;
-    private Manager supervisor;
+    private final BigDecimal budget;
+    private HiringStrategy hiringStrategy;
 
-    public GroupManager(String name, RoleInCompany role, int numberOfPossibleWorkers) {
+    public GroupManager(String name, RoleInCompany role, BigDecimal salary,
+                        int numberOfPossibleWorkers, BigDecimal budget) {
 
-        this.name = name;
-        this.role = role;
+        super(name, role, salary);
         this.numberOfPossibleWorkers = numberOfPossibleWorkers;
+        this.budget = budget;
 
         this.employees = new ArrayList<Employee>();
-        //should I use ArrayList<>();
-
     }
 
     public void hire(Employee e) {
@@ -72,13 +71,6 @@ public class GroupManager implements Manager {
         workDescription.append(employeesWorkGrpah.toString().replace("\n", "\n\t"));
         return workDescription.toString();
 
-    }
-
-    public String getResponsibilityChain() {
-        if(this.getSupervisor() != null) {
-            return getSupervisor().getResponsibilityChain() + " <- " + getName();
-        }
-        return getName();
     }
 
     public String getDescription() {
