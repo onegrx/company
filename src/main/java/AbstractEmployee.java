@@ -26,6 +26,11 @@ public abstract class AbstractEmployee implements Employee {
     }
 
     @Override
+    public String work() {
+        return getName() + " " + getRole() + " is doing some work.";
+    }
+
+    @Override
     public String getName() {
         return name;
     }

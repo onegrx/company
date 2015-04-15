@@ -39,5 +39,11 @@ public class Main {
         System.out.println("Tom's responsibility chain:");
         System.out.println(employees[2].getResponsibilityChain());
 
+        System.out.println(Alan.work());
+        System.out.println(Richard.work());
+        System.out.println(employees[0].work());
+
     }
+
+
 }

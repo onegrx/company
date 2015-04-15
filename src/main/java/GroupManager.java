@@ -53,19 +53,25 @@ public class GroupManager implements Manager {
     public String work() {
 
         StringBuilder workDescription = new StringBuilder();
+
+
         if(employees.size() == 0) {
             workDescription.append(getName()).append(", ").append(getRole());
             workDescription.append("Manager is not hiring anyone.");
-        }
-        else {
-            workDescription.append("\n").append(getName().toUpperCase()).append("'S TEAM:");
-            for (Employee e : employees) {
-                workDescription.append("\n");
-                workDescription.append("=> ").append(e.toString());
-            }
+            return workDescription.toString();
         }
 
+        workDescription.append("\n");
+        workDescription.append(getName().toUpperCase()).append("'S TEAM:");
+        StringBuilder employeesWorkGrpah = new StringBuilder();
+        for (Employee e : employees) {
+            employeesWorkGrpah.append("\n");
+            employeesWorkGrpah.append("=> ").append(e.work());
+        }
+
+        workDescription.append(employeesWorkGrpah.toString().replace("\n", "\n\t"));
         return workDescription.toString();
+
     }
 
     public String getResponsibilityChain() {
