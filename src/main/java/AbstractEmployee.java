@@ -23,10 +23,10 @@ public abstract class AbstractEmployee implements Employee {
         return getName();
     }
 
+    //
     @Override
     public String getDescription() {
-        final String s = "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
-        return s;
+        return  "Name: " + getName() +", Role: " + getRole();
     }
 
     @Override
@@ -55,8 +55,14 @@ public abstract class AbstractEmployee implements Employee {
     }
 
     public String toString() {
-        return this.getClass().getSimpleName() + " is doing something.";
+        return this.getClass().getSimpleName() + " - " + this.getName() + " is doing something.";
     }
 
+    public BigDecimal getSalary() {
+        return salary;
+    }
 
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 }

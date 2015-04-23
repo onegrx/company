@@ -1,3 +1,6 @@
+import java.math.*;
+import java.util.*;
+
 /**
  * Created by onegrx on 02.04.15.
  */
@@ -12,5 +15,7 @@ public interface Employee {
 
     Manager getSupervisor();
     void setSupervisor(Manager supervisor);
+
+    BigDecimal getSalary();
 
 }

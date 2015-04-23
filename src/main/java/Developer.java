@@ -14,9 +14,13 @@ public class Developer extends AbstractEmployee {
         return getName() + " " + getRole() + " is creating new features";
     }
 
-    //public String toString() {
-    //    return "Developer: " + getName() + " ";
-    //}
+    @Override
+    public String getDescription() {
+        return  "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
+    }
+
+    
+
 }
 
 

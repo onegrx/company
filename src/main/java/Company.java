@@ -3,6 +3,9 @@
  */
 public class Company {
 
+    /**
+     * Singleton DP representing a sample company.
+     */
     private static Company instance;
     private Manager ceo;
 

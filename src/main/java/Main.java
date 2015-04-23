@@ -8,13 +8,13 @@ public class Main {
 
         Company company = Company.getInstance();
         GroupManager Steve = new GroupManager("Steve", RoleInCompany.CEO, new BigDecimal("30000"),
-                10, new BigDecimal("100000"));
+                new HiringByCapacity(5));
         company.hireCEO(Steve);
 
         GroupManager Alan = new GroupManager("Alan", RoleInCompany.GROUP_MANAGER, new BigDecimal("20000"),
-                3, new BigDecimal("25000"));
+                new HiringByBudget(new BigDecimal(50000)));
         GroupManager Richard = new GroupManager("Richard", RoleInCompany.GROUP_MANAGER, new BigDecimal("10000"),
-                2, new BigDecimal("20000"));
+                new HiringByCapacity(20));
 
         final int quantity = 4;
         Employee[] employees = new Employee[quantity];

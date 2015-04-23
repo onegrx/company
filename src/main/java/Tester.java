@@ -14,10 +14,8 @@ public class Tester extends AbstractEmployee {
         return getName() + " " + getRole() + " is testing software";
     }
 
-    public String toString() {
-
-        String s = "Tester: " + getName() + " ";
-        return s;
-
+    @Override
+    public String getDescription() {
+        return  "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
     }
 }
