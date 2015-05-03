@@ -8,20 +8,20 @@ public class Main {
 
         Company company = Company.getInstance();
         GroupManager Steve = new GroupManager("Steve", RoleInCompany.CEO, new BigDecimal("30000"),
-                new HiringByCapacity(5));
+                Color.BLUE, new HiringByCapacity(5));
         company.hireCEO(Steve);
 
         GroupManager Alan = new GroupManager("Alan", RoleInCompany.GROUP_MANAGER, new BigDecimal("20000"),
-                new HiringByBudget(new BigDecimal(50000)));
+                Color.BROWN, new HiringByBudget(new BigDecimal(50000)));
         GroupManager Richard = new GroupManager("Richard", RoleInCompany.GROUP_MANAGER, new BigDecimal("10000"),
-                new HiringByCapacity(20));
+                Color.GREEN, new HiringByCapacity(20));
 
         final int quantity = 4;
         Employee[] employees = new Employee[quantity];
-        employees[0] = new Developer("Jack", RoleInCompany.DEVELOPER, new BigDecimal("3000"));
-        employees[1] = new Developer("Mark", RoleInCompany.DEVELOPER, new BigDecimal("2000"));
-        employees[2] = new Tester("Tom", RoleInCompany.TESTER, new BigDecimal("2500"));
-        employees[3] = new Tester("Bill", RoleInCompany.TESTER, new BigDecimal("1500"));
+        employees[0] = new Developer("Jack", RoleInCompany.DEVELOPER, new BigDecimal("3000"), Color.BROWN);
+        employees[1] = new Developer("Mark", RoleInCompany.DEVELOPER, new BigDecimal("2000"), Color.BLUE);
+        employees[2] = new Tester("Tom", RoleInCompany.TESTER, new BigDecimal("2500"), Color.GREY);
+        employees[3] = new Tester("Bill", RoleInCompany.TESTER, new BigDecimal("1500"), Color.BROWN);
 
         //Let's do some work
         Steve.hire(Alan);

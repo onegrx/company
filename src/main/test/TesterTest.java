@@ -11,7 +11,10 @@ import static org.fest.assertions.Assertions.*;
 
 public class TesterTest {
 
-    static final Tester tester = new Tester("John Doe", RoleInCompany.TESTER, new BigDecimal("2500"));
+    static final Tester tester =
+            new Tester("John Doe", RoleInCompany.TESTER, new BigDecimal("2500"), Color.BROWN);
+
+    static final String s = "Name: " + tester.getName() +", Role: " + tester.getRole() + ", Subordinate employees: 0";
 
     @Test
     public void responsibilityChainMustContainName() throws Exception {
@@ -19,13 +22,12 @@ public class TesterTest {
     }
 
     @Test
-    public void responsibilityChainEmptyForUnemployeed() throws Exception {
+    public void responsibilityChainEmptyForUnemployed() throws Exception {
         assertThat(tester.getResponsibilityChain()).doesNotContain("<-");
     }
 
     @Test
     public void descriptionIsCorrect() throws Exception {
-        final String s = "Name: " + tester.getName() +", Role: " + tester.getRole() + ", Subordinate employees: 0";
         assertThat(tester.getDescription()).isEqualTo(s);
     }
 

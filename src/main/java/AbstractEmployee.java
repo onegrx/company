@@ -5,15 +5,17 @@ import java.math.*;
  */
 public abstract class AbstractEmployee implements Employee {
 
-    protected final String name;
-    protected final RoleInCompany role;
-    protected Manager supervisor;
+    private final String name;
+    private final RoleInCompany role;
+    private Manager supervisor;
     private BigDecimal salary;
+    private Color eyeColor;
 
-    public AbstractEmployee(String name, RoleInCompany role, BigDecimal salary) {
+    public AbstractEmployee(String name, RoleInCompany role, BigDecimal salary, Color color) {
         this.name = name;
         this.role = role;
         this.salary = salary;
+        this.eyeColor = color;
     }
 
     @Override
@@ -62,7 +64,4 @@ public abstract class AbstractEmployee implements Employee {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
-    }
 }

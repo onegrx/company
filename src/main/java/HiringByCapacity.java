@@ -3,7 +3,7 @@
  */
 public class HiringByCapacity implements HiringStrategy{
 
-    public final int numberOfPossibleWorkers;
+    private final int numberOfPossibleWorkers;
     private int currentWorkers = 0;
 
     public HiringByCapacity(int numberOfPossibleWorkers) {

@@ -12,7 +12,10 @@ import static org.fest.assertions.Assertions.*;
 
 public class DeveloperTest {
 
-    static final Developer developer = new Developer("John Doe", RoleInCompany.DEVELOPER, new BigDecimal("3000"));
+    static final Developer developer =
+            new Developer("John Doe", RoleInCompany.DEVELOPER, new BigDecimal("3000"), Color.GREY);
+
+    static final String s = "Name: " + developer.getName() +", Role: " + developer.getRole() + ", Subordinate employees: 0";
 
     @Test
     public void responsibilityChainMustContainName() throws Exception {
@@ -26,7 +29,6 @@ public class DeveloperTest {
 
     @Test
     public void descriptionIsCorrect() throws Exception {
-        final String s = "Name: " + developer.getName() +", Role: " + developer.getRole() + ", Subordinate employees: 0";
         assertThat(developer.getDescription()).isEqualTo(s);
     }
 }

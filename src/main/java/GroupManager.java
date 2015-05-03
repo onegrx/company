@@ -10,10 +10,10 @@ public class GroupManager extends AbstractEmployee implements Manager {
     private final List<Employee> employees = new ArrayList<Employee>();
     private final HiringStrategy hiringStrategy;
 
-    public GroupManager(String name, RoleInCompany role, BigDecimal salary,
+    public GroupManager(String name, RoleInCompany role, BigDecimal salary, Color color,
                         HiringStrategy hiringStrategy) {
 
-        super(name, role, salary);
+        super(name, role, salary, color);
         this.hiringStrategy = hiringStrategy;
     }
 

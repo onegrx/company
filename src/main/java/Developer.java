@@ -5,8 +5,8 @@ import java.math.*;
  */
 public class Developer extends AbstractEmployee {
 
-    public Developer(String name, RoleInCompany role, BigDecimal salary) {
-        super(name, role, salary);
+    public Developer(String name, RoleInCompany role, BigDecimal salary, Color color) {
+        super(name, role, salary, color);
     }
 
     @Override

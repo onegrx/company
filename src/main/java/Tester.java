@@ -5,8 +5,8 @@ import java.math.*;
  */
 public class Tester extends AbstractEmployee {
 
-    public Tester(String name, RoleInCompany role, BigDecimal salary) {
-        super(name, role, salary);
+    public Tester(String name, RoleInCompany role, BigDecimal salary, Color color) {
+        super(name, role, salary, color);
     }
 
     @Override
