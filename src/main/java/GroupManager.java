@@ -18,6 +18,14 @@ public class GroupManager extends AbstractEmployee implements Manager {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+        for(Employee e: employees) {
+            e.accept(visitor);
+        }
+    }
+
+    @Override
     public boolean canHire(Employee e) {
         if(employees.contains(e)) {
             return false;
@@ -82,8 +90,8 @@ public class GroupManager extends AbstractEmployee implements Manager {
         return "Name: " + getName() + ", Role: " + getRole() + ", Hiring: " + employees.size();
     }
 
-    public String toString() {
-        return  "Group Manager: " + getName() + " ";
+    public HiringStrategy getHiringStrategy() {
+        return hiringStrategy;
     }
 
     @Override
@@ -91,8 +99,11 @@ public class GroupManager extends AbstractEmployee implements Manager {
         return employees;
     }
 
-    public HiringStrategy getHiringStrategy() {
-        return hiringStrategy;
+    @Override
+    public Iterator<Employee> iterator() {
+        return Collections.unmodifiableList(employees).iterator();
     }
+
+
 }
 

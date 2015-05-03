@@ -26,7 +26,10 @@ public class CompanyTest {
         Company company = Company.getInstance();
         company.hireCEO(manager);
         company.hireCEO(otherManager);
-        assertThat(company.getCEO()).isSameAs(manager);
-        assertThat(company.getCEO()).isNotSameAs(otherManager);
+
+
+        assertThat((Employee)company.getCEO()).isSameAs(manager);
+        assertThat((Employee)company.getCEO()).isNotSameAs(otherManager);
+
     }
 }

@@ -14,8 +14,5 @@ public class Tester extends AbstractEmployee {
         return getName() + " " + getRole() + " is testing software";
     }
 
-    @Override
-    public String getDescription() {
-        return  "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
-    }
+
 }

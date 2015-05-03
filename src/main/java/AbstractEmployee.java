@@ -19,16 +19,27 @@ public abstract class AbstractEmployee implements Employee {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
+
+    @Override
     public String getResponsibilityChain() {
         if(getSupervisor() != null)
             return getSupervisor().getResponsibilityChain() + " <- " + getName();
         return getName();
     }
 
-    //
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + " (" + this.role + ") "
+                + " - " + this.getName() + " is doing something.";
+    }
+
     @Override
     public String getDescription() {
-        return  "Name: " + getName() +", Role: " + getRole();
+        return  "Name: " + getName() +", Role: " + getRole() + ", Subordinate employees: 0";
     }
 
     @Override
@@ -56,10 +67,7 @@ public abstract class AbstractEmployee implements Employee {
         this.supervisor = supervisor;
     }
 
-    public String toString() {
-        return this.getClass().getSimpleName() + " - " + this.getName() + " is doing something.";
-    }
-
+    @Override
     public BigDecimal getSalary() {
         return salary;
     }

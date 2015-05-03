@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Created by onegrx on 02.04.15.
  */
-public interface Employee {
+public interface Employee extends Visitable {
 
     String getName();
     RoleInCompany getRole();

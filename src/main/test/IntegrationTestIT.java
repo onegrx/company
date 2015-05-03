@@ -3,9 +3,7 @@
  */
 
 import org.junit.Test;
-
 import java.math.*;
-
 import static org.fest.assertions.Assertions.*;
 
 
@@ -16,34 +14,82 @@ public class IntegrationTestIT {
     static final BigDecimal salary = new BigDecimal("7000");
     static final int numOfWorkers = 2;
     static final HiringStrategy capacityHiring = new HiringByCapacity(numOfWorkers);
-    final static Color color = Color.BLUE;
-
-
-    static final GroupManager gm = new GroupManager(name, role, salary, color, capacityHiring);
-    static final Tester t =
-            new Tester("Will Smith", RoleInCompany.TESTER, new BigDecimal("2500"), color);
-    static final Developer d =
-            new Developer("John Doe", RoleInCompany.DEVELOPER, new BigDecimal("4000"), color);
+    static final Color color = Color.BLUE;
 
 
     @Test
-    public void hiringSystemWorksProperly() throws Exception {
+    public void supervisorIsNotSetAtTheBeginning() throws Exception {
 
-        assertThat(gm.getSupervisor()).isNull();
+        //Given
+        final GroupManager gm = new GroupManager(name, role, salary, color, capacityHiring);
 
+        //Then
+        assertThat((Employee)gm.getSupervisor()).isNull();
+    }
+
+    @Test
+    public void managerWithPositiveCapacityCanHire() throws Exception {
+
+        //Given
+        final GroupManager gm = new GroupManager(name, role, salary, color, capacityHiring);
+        final Tester t = new Tester(name, RoleInCompany.TESTER, new BigDecimal("2500"), color);
+        final Developer d = new Developer(name, RoleInCompany.DEVELOPER, new BigDecimal("4000"), color);
+
+        //Then
         assertThat(gm.canHire(d)).isTrue();
         assertThat(gm.canHire(t)).isTrue();
+    }
+
+    @Test
+    public void managerCannotHireTwiceTheSamePerson() throws Exception {
+
+        //Given
+        final GroupManager gm = new GroupManager(name, role, salary, color, capacityHiring);
+        final Tester t = new Tester(name, RoleInCompany.TESTER, new BigDecimal("2500"), color);
+        final Developer d = new Developer(name, RoleInCompany.DEVELOPER, new BigDecimal("4000"), color);
+
+        //When
         gm.hire(d);
         gm.hire(d);
+
+        //Then
         assertThat(gm.canHire(t)).isTrue();
         assertThat(gm.getHiringStrategy().canHire(gm, t)).isTrue();
 
+    }
 
+    @Test
+    public void managerCannotHireMoreThanCapacity() throws Exception {
+
+        //Given
+        final GroupManager gm = new GroupManager(name, role, salary, color, capacityHiring);
+        final Tester t = new Tester(name, RoleInCompany.TESTER, new BigDecimal("2500"), color);
+        final Developer d = new Developer(name, RoleInCompany.DEVELOPER, new BigDecimal("4000"), color);
+
+        //When
+        gm.hire(d);
         gm.hire(t);
+
+        //The
         assertThat(gm.canHire(d)).isFalse();
         assertThat(gm.canHire(t)).isFalse();
 
-        assertThat(t.getSupervisor()).isEqualTo(d.getSupervisor()).isInstanceOf(GroupManager.class);
     }
 
+    @Test
+    public void managerIsTheSameForHisSubordinates() throws Exception {
+
+        //Given
+        final GroupManager gm = new GroupManager(name, role, salary, color, capacityHiring);
+        final Tester t = new Tester(name, RoleInCompany.TESTER, new BigDecimal("2500"), color);
+        final Developer d = new Developer(name, RoleInCompany.DEVELOPER, new BigDecimal("4000"), color);
+
+        //When
+        gm.hire(d);
+        gm.hire(t);
+
+        //Then
+        assertThat((Employee) t.getSupervisor()).isEqualTo(d.getSupervisor());
+
+    }
 }
