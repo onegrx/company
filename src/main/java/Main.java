@@ -6,7 +6,7 @@ import java.math.*;
 public class Main {
     public static void main(String[] args) {
 
-        Company company = Company.getInstance();
+        CompanyOld company = CompanyOld.getInstance();
         GroupManager Steve = new GroupManager("Steve", RoleInCompany.CEO, new BigDecimal("30000"),
                 Color.BLUE, new HiringByCapacity(5));
         company.hireCEO(Steve);
@@ -60,9 +60,17 @@ public class Main {
         AverageSalaryVisitor asv = new AverageSalaryVisitor();
         Steve.accept(csv);
         Steve.accept(asv);
-        System.out.println("Company structure:\n" + csv.printCompanyStructure());
+        System.out.println("CompanyOld structure:\n" + csv.printCompanyStructure());
         System.out.println("Average salary:\n" + asv.printAverageSalary());
 
+        //New Company
+        System.out.println("\n#########################################\n");
+        Main.newCompanyBehaviour();
+
+    }
+
+    public static void newCompanyBehaviour() {
+        CompanyNew companyNew;
     }
 
 }

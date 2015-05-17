@@ -1,20 +1,20 @@
 /**
  * Created by onegrx on 04.04.15.
  */
-public class Company {
+public class CompanyOld {
 
     /**
      * Singleton DP representing a sample company.
      */
-    private static Company instance;
+    private static CompanyOld instance;
     private Manager ceo;
 
-    private Company() {
+    private CompanyOld() {
     }
 
-    public static Company getInstance() {
+    public static CompanyOld getInstance() {
         if(instance == null) {
-            instance = new Company();
+            instance = new CompanyOld();
         }
         return instance;
 

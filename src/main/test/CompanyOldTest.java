@@ -8,14 +8,14 @@ import org.junit.Test; //is it essential, what with annotation @test
 import static org.fest.assertions.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-public class CompanyTest {
+public class CompanyOldTest {
 
     @Test
     public void companySingletonCanBeOnlyOne() throws Exception {
-        Company company = Company.getInstance();
+        CompanyOld company = CompanyOld.getInstance();
         assertThat(company).isNotNull();
-        assertThat(company).isInstanceOf(Company.class);
-        Company otherCompany = Company.getInstance();
+        assertThat(company).isInstanceOf(CompanyOld.class);
+        CompanyOld otherCompany = CompanyOld.getInstance();
         assertThat(otherCompany).isSameAs(company);
     }
 
@@ -23,7 +23,7 @@ public class CompanyTest {
     public void mainCeoIsUnique() throws Exception {
         Manager manager = mock(Manager.class);
         Manager otherManager = mock(Manager.class);
-        Company company = Company.getInstance();
+        CompanyOld company = CompanyOld.getInstance();
         company.hireCEO(manager);
         company.hireCEO(otherManager);
 
