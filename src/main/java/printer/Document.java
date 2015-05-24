@@ -11,7 +11,8 @@ public class Document {
         this.payload = payload;
     }
 
-    public String getPayload() {
+    @Override
+    public String toString() {
         return payload;
     }
 }
