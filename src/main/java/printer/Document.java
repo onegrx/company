@@ -4,13 +4,14 @@ package printer;
  * Created by onegrx on 24.05.15.
  */
 public class Document {
-    private final String content;
 
-    public Document(String content) {
-        this.content = content;
+    private final String payload;
+
+    public Document(String payload) {
+        this.payload = payload;
     }
 
-    public String getContent() {
-        return content;
+    public String getPayload() {
+        return payload;
     }
 }
